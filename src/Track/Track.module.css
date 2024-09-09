@@ -1,0 +1,30 @@
+.trackCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #cecece;
+}
+
+.h3 {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.p {
+    color: #cecece;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.addButton {
+    padding: 10px;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #dd6700;
+    cursor: pointer;
+}
