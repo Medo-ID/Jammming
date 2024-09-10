@@ -1,23 +1,30 @@
 import styles from "./Track.module.css"
 
 function Track(props) {
-    const buttonLabel = props.isInPlaylist ? "Remove -" : "Add +";
+    const { index, track, isInPlaylist, addAction, removeAction } = props;
+    const buttonLabel = isInPlaylist ? "-" : "+";
 
     const handleClick = () => {
-        if (props.isInPlaylist) {
-            props.removeAction(props.track); // If in playlist, remove the track
+        if (isInPlaylist) {
+            removeAction(track); // If in playlist, remove the track
         } else {
-            props.addAction(props.track); // If in search results, add the track
+            addAction(track); // If in search results, add the track
         }
     }
 
     return (
-        <div className={styles.trackCard} key={props.index}>
+        <div className={styles.trackCard} key={index}>
             <div>
-                <h3 className={styles.h3}>{props.track.name}</h3>
-                <p className={styles.p}>{props.track.artist}</p>
+                <h3 className={styles.h3}>{track.name}</h3>
+                <p className={styles.p}>{track.artist}</p>
             </div>
-            <button className={styles.addButton} onClick={handleClick}>{buttonLabel}</button>
+            <button 
+                className={styles.button}
+                onClick={handleClick} 
+                disabled={props.isAlreadyInPlaylist}
+            >
+                {buttonLabel}
+            </button>
         </div>
     )
 }

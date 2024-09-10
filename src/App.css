@@ -1,11 +1,12 @@
 .App {
-  color: #dd6700;
+  color: #cecece;
   margin: auto;
-  padding: 20px 40px;
+  padding: 10px 50px;
   text-align: center;
 }
 
 h1 {
+  color: #e24b1d;
   font-size: 48px;
   font-weight: 700;
   letter-spacing: .5px;
@@ -13,7 +14,6 @@ h1 {
 }
 
 p {
-  color: #cecece;
   font-weight: 300;
   font-size: 16px;
 }
@@ -27,7 +27,7 @@ p {
 
 @media (max-width: 767px) {
   .App {
-    padding: 12px 5px;
+    padding: 12px 6px;
   }
 
   .main-section {

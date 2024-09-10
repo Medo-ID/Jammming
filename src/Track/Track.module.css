@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #cecece;
+    border-bottom: 1px solid #cecece86;
 }
 
 .h3 {
@@ -14,17 +14,32 @@
 }
 
 .p {
-    color: #cecece;
     font-size: 16px;
     font-weight: 400;
 }
 
-.addButton {
-    padding: 10px;
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 14px;
-    border-radius: 5px;
-    background-color: #dd6700;
+.button {
+    width: 35px;
+    height: 35px;
+    color: #0e161f;
+    font-weight: 800;
+    font-size: 16px;
+    border-radius: 2px;
+    background-color: #bebebe;
     cursor: pointer;
+    border: none;
+}
+
+.button:hover {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 14px;
+    border-radius: 0px;
+    background-color: #e24b1d;
+    transition: ease-in-out 300ms;
+}
+
+.button:disabled {
+    background-color: #585858;
+    color: #a3a3a3;
 }

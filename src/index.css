@@ -8,12 +8,15 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, Poppins, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, Poppins, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #111413;
   color: #cecece;
   min-height: 100dvh;
+}
+
+button {
+  font-family: -apple-system, Poppins, sans-serif;
+  border: none;
 }

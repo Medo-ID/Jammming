@@ -7,7 +7,16 @@ function SearchResult(props) {
             <h2 className={styles.h2}>Search Result</h2>
             <div className={styles.div}>
                 {props.tracks.map((track, index) => {
-                    return <Track key={index} track={track} addAction={props.addAction} isInPlaylist={false} />
+                    const isAlreadyInPlaylist = props.playlist.some(
+                        item => item.name === track.name && item.artist === track.artist
+                    )
+                    return <Track 
+                                key={index} 
+                                track={track} 
+                                addAction={props.addAction} 
+                                isInPlaylist={false}
+                                isAlreadyInPlaylist={isAlreadyInPlaylist}
+                            />
                 })}
             </div>
         </div>
