@@ -3,7 +3,7 @@
     height: 850px;
     padding: 25px;
     background-color: #111413;
-    border-radius: 5px;
+    
     border: 1px solid #cecece86;
 }
 
@@ -21,7 +21,7 @@
     font-size: 16px;
     font-weight: 400;
     border: none;
-    border-radius: 5px;
+    
     min-height: 40px;
     max-height: 80px;
     color: #111413;
@@ -31,7 +31,7 @@
 .tracklist {
     width: 100%;
     height: 600px;
-    border-radius: 5px;
+    
     padding: 10px;
     overflow-y: scroll;
     background-color: rgba(206, 206, 206, 0.1);
@@ -42,7 +42,7 @@
     padding: 10px 20px;
     color: #ffffff;
     font-size: 16px;
-    border-radius: 5px;
+    
     background-color: #e24b1d;
     cursor: pointer;
     margin: 10px auto;

@@ -15,8 +15,8 @@ function PlayList(props) {
                 required 
             />
             <div className={styles.tracklist}>
-                {props.playlist.map((track, index) => {
-                    return <Track key={index} track={track} removeAction={props.removeAction} isInPlaylist={true} />
+                {props.playlist.map((track) => {
+                    return <Track key={track.id} track={track} removeAction={props.removeAction} isInPlaylist={true} />
                 })}
             </div>
             <button className={styles.button} disabled={props.playlist.length === 0 || props.playlistName === ""}>Save To Spotify</button>

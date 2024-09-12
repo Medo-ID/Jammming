@@ -8,23 +8,23 @@
 
 .h3 {
     color: white;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: 2px;
 }
 
 .p {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 400;
+    margin-bottom: 4px;
 }
 
 .button {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
     color: #0e161f;
-    font-weight: 800;
+    font-weight: 500;
     font-size: 16px;
-    border-radius: 2px;
     background-color: #bebebe;
     cursor: pointer;
     border: none;
@@ -34,7 +34,6 @@
     color: #ffffff;
     font-weight: 800;
     font-size: 14px;
-    border-radius: 0px;
     background-color: #e24b1d;
     transition: ease-in-out 300ms;
 }

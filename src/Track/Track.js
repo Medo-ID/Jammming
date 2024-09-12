@@ -1,7 +1,7 @@
 import styles from "./Track.module.css"
 
 function Track(props) {
-    const { index, track, isInPlaylist, addAction, removeAction } = props;
+    const { track, isInPlaylist, addAction, removeAction } = props;
     const buttonLabel = isInPlaylist ? "-" : "+";
 
     const handleClick = () => {
@@ -13,10 +13,10 @@ function Track(props) {
     }
 
     return (
-        <div className={styles.trackCard} key={index}>
+        <div className={styles.trackCard}>
             <div>
                 <h3 className={styles.h3}>{track.name}</h3>
-                <p className={styles.p}>{track.artist}</p>
+                <p className={styles.p}>{track.artist} - {track.album}</p>
             </div>
             <button 
                 className={styles.button}

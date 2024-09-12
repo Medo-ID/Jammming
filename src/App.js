@@ -3,71 +3,88 @@ import './App.css';
 import SearchBar from './SearchBar/SearchBar';
 import SearchResult from './SearchResults/SearchResults';
 import PlayList from './PlayList/PlayList';
-import { handleSpotifyAuthorization } from './authorization';
+import { authorizeSpotify, getAccessTokenFromUrl, isTokenExpired } from './authorization';
+import { getTracks } from './api';
 
 function App() {
-	const [counter, setCounter] = useState(1) // Delete when api is working
-	const [searchInput, setSearchInput] = useState("")
+	const [searchInput, setSearchInput] = useState("");
 	const [tracks, setTracks] = useState([]);
-	
-	const [playlistName, setPlaylistName] = useState("")
+	const [playlistName, setPlaylistName] = useState("");
 	const [playlist, setPlaylist] = useState([]);
 
-	function handleSearchInputChange(e) {
-		setSearchInput(e.target.value)
-	}
-	
-	function handlePlaylistNameChange(e) {
-		setPlaylistName(e.target.value)
-	}
+	const handleSearchInputChange = (e) => {
+		setSearchInput(e.target.value);
+	};
 
-	function handleSubmit(e) {
-		e.preventDefault()
-		setTracks(prev => [...prev, {name: `track ${counter}`, artist: `artist ${counter}`}])
-		setCounter(prev => prev + 1)
-		setSearchInput("")
-	}
+	const handlePlaylistNameChange = (e) => {
+		setPlaylistName(e.target.value);
+	};
 
-	function handleAddAction(track) {
-		setPlaylist(prev => {
-			const isTrackInPlaylist = prev.some(item => item.name === track.name && item.artist === track.artist);
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		if (searchInput.trim()) {
+			const token = localStorage.getItem('spotify_access_token');
+			if (token) {
+				const result = await getTracks(searchInput);
+				if (result) {
+					setTracks(result);
+				}
+			} else {
+				console.error('No access token available. Please log in.');
+			}
+		}
+		// setSearchInput("");
+	};
+
+	const handleAddAction = (track) => {
+		setPlaylist((prev) => {
+			const isTrackInPlaylist = prev.some(item => item.id === track.id);
 			if (!isTrackInPlaylist) {
 				return [...prev, track];
 			} else {
 				return prev;
 			}
 		});
-	}
+	};
 
-	function handleRemoveAction(track) {
-		setPlaylist(prev => prev.filter(item => item.name !== track.name && item.artist !== track.artist));
-	}
+	const handleRemoveAction = (track) => {
+		setPlaylist((prev) => prev.filter(item => item.id !== track.id));
+	};
 
 	useEffect(() => {
-		handleSpotifyAuthorization();
-	},);
+		getAccessTokenFromUrl();
 
-  	return (
+		const storedToken = localStorage.getItem('spotify_access_token');
+		const tokenExpired = isTokenExpired();
+
+		if (!storedToken || tokenExpired) {
+			authorizeSpotify();
+		} else {
+			console.log("Token is valid. You can now make Spotify API requests.");
+		}
+	}, []);
+
+	return (
 		<div className="App">
 			<h1>Welcome to Jamming</h1>
-			<p>Search the Spotify library, create a custom playlist, then save it to your Spotify account</p>
+			<p className='app-description'>Search the Spotify library, create a custom playlist, then save it to your Spotify account</p>
 			<p>{playlistName}</p>
-			<SearchBar 
-				searchInput={searchInput} 
-				handleSubmit={handleSubmit} 
-				handleChange={handleSearchInputChange} 
+			<SearchBar
+				searchInput={searchInput}
+				handleSubmit={handleSubmit}
+				handleChange={handleSearchInputChange}
 			/>
 			<div className='main-section'>
 				<SearchResult
-				tracks={tracks} 
-				addAction={handleAddAction} 
-				playlist={playlist} 
+				tracks={tracks}
+				addAction={handleAddAction}
+				playlist={playlist}
 				/>
-				<PlayList 
-				playlist={playlist} 
-				playlistName={playlistName} 
-				handleChange={handlePlaylistNameChange} 
-				removeAction={handleRemoveAction} 
+				<PlayList
+				playlist={playlist}
+				playlistName={playlistName}
+				handleChange={handlePlaylistNameChange}
+				removeAction={handleRemoveAction}
 				/>
 			</div>
 		</div>

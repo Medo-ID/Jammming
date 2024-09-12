@@ -2,7 +2,6 @@
   color: #cecece;
   margin: auto;
   padding: 10px 50px;
-  text-align: center;
 }
 
 h1 {
@@ -11,11 +10,13 @@ h1 {
   font-weight: 700;
   letter-spacing: .5px;
   margin: 20px 10px;
+  text-align: center;
 }
 
-p {
+.app-description {
   font-weight: 300;
   font-size: 16px;
+  text-align: center;
 }
 
 .main-section {
