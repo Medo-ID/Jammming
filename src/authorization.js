@@ -1,6 +1,6 @@
 const clientId = process.env.REACT_APP_CLIENT_ID;
 const redirectUri = 'http://localhost:3000';
-const scopes = 'user-read-private user-read-email';
+const scopes = 'playlist-modify-public playlist-modify-private user-read-private user-read-email';
 
 // Step 1: Authorization (redirect to Spotify for login)
 export const authorizeSpotify = () => {

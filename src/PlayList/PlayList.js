@@ -19,7 +19,13 @@ function PlayList(props) {
                     return <Track key={track.id} track={track} removeAction={props.removeAction} isInPlaylist={true} />
                 })}
             </div>
-            <button className={styles.button} disabled={props.playlist.length === 0 || props.playlistName === ""}>Save To Spotify</button>
+            <button 
+                className={styles.button}
+                onClick={props.handleCreatingPlaylist}
+                disabled={props.playlist.length === 0 || props.playlistName === ""}
+            >
+                    Save To Spotify
+            </button>
         </div>
     )
 }
