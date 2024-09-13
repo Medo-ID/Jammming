@@ -19,7 +19,6 @@
     font-size: 16px;
     font-weight: 400;
     border: none;
-    
     width: 650px;
     min-height: 40px;
     max-height: 80px;
@@ -28,10 +27,9 @@
 }
 
 .button {
-    padding: 10px 30px;
+    padding: 8px 30px;
     color: #ffffff;
     font-size: 16px;
-    
     background-color: #e24b1d;
     cursor: pointer;
 }

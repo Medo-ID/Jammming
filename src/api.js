@@ -1,6 +1,10 @@
-const apiSpotify = 'https://api.spotify.com/v1/'
+const apiSpotify = 'https://api.spotify.com/v1/';
 
-// Fetch tracks based on the user query
+/**
+* Fetches tracks from the Spotify API based on the user search query.
+* @param {string} query - Search query input by the user.
+* @returns {Array} - Array of track objects containing track ID, name, artist, album, and URI.
+*/
 export const getTracks = async (query) => {
     const endpoint = `${apiSpotify}search?q=${encodeURIComponent(query)}&type=track&limit=20`;
     const accessToken = localStorage.getItem('spotify_access_token');
@@ -14,8 +18,8 @@ export const getTracks = async (query) => {
         const response = await fetch(endpoint, {
             method: 'GET',
             headers: {
-            Authorization: `Bearer ${accessToken}`,
-            'Content-Type': 'application/json',
+                Authorization: `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
             },
         });
     
@@ -24,35 +28,39 @@ export const getTracks = async (query) => {
         }
     
         const data = await response.json();
-        const dataNeeded = []
+        const tracks = data.tracks.items.map(item => ({
+            id: item.id,
+            name: item.name,
+            artist: item.artists.map(artist => artist.name).join(', '),
+            album: item.album.name,
+            uri: item.uri
+        }));
 
-        for (const item of data.tracks.items) {
-            dataNeeded.push({
-                id: item.id,
-                name: item.name,
-                artist: item.artists.map(artist => artist.name),
-                album: item.album.name,
-                uri: item.uri
-            })
-        }
-
-        return dataNeeded;
+        return tracks;
     } catch (error) {
         console.log('Error fetching tracks:', error);
     }
 };
 
-// Fetch current user info to get their ID
+/**
+* Fetches the current Spotify user's ID.
+* @returns {string} - The Spotify user ID.
+*/
 const getCurrentUserId = async () => {
     const accessToken = localStorage.getItem('spotify_access_token');
     const endpoint = `${apiSpotify}me`;
+  
+    if (!accessToken) {
+        console.log('No access token available');
+        return;
+    }
   
     try {
         const response = await fetch(endpoint, {
             method: 'GET',
             headers: {
-                Authorization: `Bearer ${accessToken}`
-            }
+                Authorization: `Bearer ${accessToken}`,
+            },
         });
     
         if (!response.ok) {
@@ -60,13 +68,17 @@ const getCurrentUserId = async () => {
         }
     
         const data = await response.json();
-        return data.id;  // Return the user ID
+        return data.id;  // Return user ID
     } catch (error) {
         console.error('Error fetching current user:', error);
     }
 };
 
-// Function to create a new playlist
+/**
+* Creates a new playlist for the current user.
+* @param {string} playlistName - The name of the new playlist to be created.
+* @returns {Object} - Playlist object containing playlist details (e.g., id, name).
+*/
 export const createPlaylist = async (playlistName) => {
     const accessToken = localStorage.getItem('spotify_access_token');
     const userId = await getCurrentUserId();
@@ -83,7 +95,7 @@ export const createPlaylist = async (playlistName) => {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${accessToken}`,
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 name: playlistName,
@@ -97,14 +109,17 @@ export const createPlaylist = async (playlistName) => {
         }
   
         const playlistData = await response.json();
-        console.log('Playlist Created successfully:', playlistData);
         return playlistData;
     } catch (error) {
         console.error('Error while creating new playlist:', error);
     }
 };
 
-// Function to add tracks to the new playlist created
+/**
+* Adds tracks to an existing playlist.
+* @param {string} playlist_id - ID of the playlist to which tracks will be added.
+* @param {Array} uris - Array of track URIs to be added to the playlist.
+*/
 export const addTracks = async (playlist_id, uris) => {
     const accessToken = localStorage.getItem('spotify_access_token');
 
@@ -125,19 +140,15 @@ export const addTracks = async (playlist_id, uris) => {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${accessToken}`,
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                uris: uris,
-            })
+            body: JSON.stringify({ uris })
         });
 
         if (!response.ok) {
             throw new Error('Failed to add tracks to playlist.');
         }
-
-        const tracksAdded = await response.json();
-        console.log('Tracks added successfully:', tracksAdded);
+        console.log('Tracks added successfully');
     } catch (error) {
         console.error('Error while adding tracks:', error);
     }
