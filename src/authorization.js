@@ -1,6 +1,6 @@
 // Spotify API credentials and settings
 const clientId = process.env.REACT_APP_CLIENT_ID;  // Spotify client ID from environment variables
-const redirectUri = 'http://localhost:3000';  // Redirect URI for Spotify authorization callback
+const redirectUri = 'https://jamm-ing.netlify.app' || 'http://localhost:3000';  // Redirect URI for Spotify authorization callback
 const scopes = 'playlist-modify-public playlist-modify-private user-read-private user-read-email';  // Permissions requested from Spotify
 
 /**
