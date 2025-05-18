@@ -1,57 +1,61 @@
 .mainDiv {
-    width: 100%;
-    height: 850px;
-    padding: 25px;
-    background-color: #111413;
-    
-    border: 1px solid #cecece86;
+  width: 100%;
+  height: 850px;
+  padding: 25px;
+  background-color: #111413;
+  border: 1px solid #cecece86;
+  border-radius: 16px;
 }
 
-.h2{
-    color: #e24b1d;
-    margin: 10px;
-    font-size: 28px;
-    font-weight: 400;
+.h2 {
+  color: #e24b1d;
+  margin: 10px;
+  font-size: 28px;
+  font-weight: 400;
 }
 
 .input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px auto;
-    font-size: 16px;
-    font-weight: 400;
-    border: none;
-    min-height: 40px;
-    max-height: 80px;
-    color: #111413;
-    background-color: #cecece;
+  width: 100%;
+  padding: 10px;
+  margin: 10px auto;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  min-height: 40px;
+  max-height: 80px;
+  color: #111413;
+  background-color: #cecece;
+  border-radius: 12px;
 }
 
 .tracklist {
-    width: 100%;
-    height: 600px;
-    padding: 10px;
-    overflow-y: scroll;
-    background-color: rgba(206, 206, 206, 0.1);
+  width: 100%;
+  height: 600px;
+  padding: 10px;
+  overflow-y: scroll;
+  background-color: rgba(206, 206, 206, 0.1);
+  border-radius: 12px;
 }
 
 .button {
-    width: 100%;
-    padding: 10px 20px;
-    color: #ffffff;
-    font-size: 16px;
-    background-color: #e24b1d;
-    cursor: pointer;
-    margin: 10px auto;
+  width: 100%;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #e24b1d;
+  cursor: pointer;
+  margin: 10px auto;
+  border-radius: 12px;
+  border: none;
 }
 
 .button:hover {
-    color: #111413;
-    background-color: #cecece;
-    transition: ease-in-out 300ms;
+  color: #111413;
+  background-color: #cecece;
+  transition: ease-in-out 300ms;
 }
 
 .button:disabled {
-    background-color: #585858;
-    color: #a3a3a3;
+  background-color: #585858;
+  color: #a3a3a3;
 }

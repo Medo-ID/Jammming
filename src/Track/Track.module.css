@@ -1,44 +1,47 @@
 .trackCard {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #cecece86;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #cecece86;
+  margin-bottom: 6px;
+  border-radius: 8px;
 }
 
 .h3 {
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 2px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
 }
 
 .p {
-    font-size: 12px;
-    font-weight: 400;
-    margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 4px;
 }
 
 .button {
-    width: 32px;
-    height: 32px;
-    color: #0e161f;
-    font-weight: 500;
-    font-size: 16px;
-    background-color: #bebebe;
-    cursor: pointer;
-    border: none;
+  width: 32px;
+  height: 32px;
+  color: #0e161f;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #bebebe;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
 }
 
 .button:hover {
-    color: #ffffff;
-    font-weight: 800;
-    font-size: 14px;
-    background-color: #e24b1d;
-    transition: ease-in-out 300ms;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 14px;
+  background-color: #e24b1d;
+  transition: ease-in-out 300ms;
 }
 
 .button:disabled {
-    background-color: #585858;
-    color: #a3a3a3;
+  background-color: #585858;
+  color: #a3a3a3;
 }

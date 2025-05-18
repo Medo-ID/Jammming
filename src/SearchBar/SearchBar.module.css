@@ -1,51 +1,54 @@
 .form {
-    padding: 20px;
-    margin: 10px auto 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    max-width: 100%;
-    min-width: 350px;
+  padding: 20px;
+  margin: 10px auto 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 100%;
+  min-width: 350px;
 }
 
 .label {
-    font-size: 16px;
-    font-weight: 600;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .input {
-    padding: 4px 8px;
-    font-size: 16px;
-    font-weight: 400;
-    border: none;
-    width: 650px;
-    min-height: 40px;
-    max-height: 80px;
-    color: #111413;
-    background-color: #cecece;
+  padding: 4px 8px;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  width: 650px;
+  min-height: 40px;
+  max-height: 80px;
+  color: #111413;
+  background-color: #cecece;
+  border-radius: 12px;
 }
 
 .button {
-    padding: 8px 30px;
-    color: #ffffff;
-    font-size: 16px;
-    background-color: #e24b1d;
-    cursor: pointer;
+  padding: 8px 30px;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #e24b1d;
+  cursor: pointer;
+  border-radius: 12px;
+  border: none;
 }
 
 .button:hover {
-    color: #111413;
-    background-color: #cecece;
-    transition: ease-in-out 300ms;
+  color: #111413;
+  background-color: #cecece;
+  transition: ease-in-out 300ms;
 }
 
 @media (max-width: 767px) {
-    .form {
-        padding: 20px;
-        gap: 5px;
-    }
-    .input {
-        width: 100%;
-    }
+  .form {
+    padding: 20px;
+    gap: 5px;
+  }
+  .input {
+    width: 100%;
+  }
 }

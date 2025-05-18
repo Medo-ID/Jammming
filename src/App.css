@@ -2,6 +2,30 @@
   color: #cecece;
   margin: auto;
   padding: 10px 50px;
+  min-height: 100vh;
+}
+
+/* User profile styling */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+  justify-content: center;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e24b1d;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: 500;
+  color: #cecece;
 }
 
 header {
@@ -20,7 +44,7 @@ h1 {
   color: #e24b1d;
   font-size: 48px;
   font-weight: 700;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   margin: 20px 10px;
   text-align: center;
 }
@@ -38,6 +62,51 @@ h1 {
   align-items: start;
 }
 
+/* Login styles */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1024px;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: rgba(17, 20, 19, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.spotify-login-button {
+  margin-top: 30px;
+  padding: 12px 40px;
+  background-color: #e24b1d;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.spotify-login-button:hover {
+  background-color: #cecece;
+  color: #111413;
+  transform: scale(1.05);
+}
+
+.spotify-login-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(226, 75, 29, 0.5);
+}
+
 @media (max-width: 767px) {
   .App {
     padding: 12px 6px;
@@ -50,7 +119,7 @@ h1 {
     align-items: center;
     gap: 4px;
   }
-  
+
   h1 {
     font-size: 38px;
   }
